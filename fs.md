@@ -34,7 +34,7 @@ fs.readFile(filename,[option],callback);
 filename是文件名，opiton是可选参数，callback回调函数。回调函数接收两个参数，第一个参数如上所述是留给异常的error，第二个参数是读取的文件内容。实例：
 ```
 var fs = require('fs');
-fs.readFile('./index1.txt','UTF-8',function(err,data){ //假设当前js和index1.txt在同一级目录下面
+fs.readFile('./fs/index1.txt','UTF-8',function(err,data){ 
     if(err){
         throw err;
     }
@@ -50,13 +50,13 @@ fs.writeFile(filename,data,[option],callback);
 filename文件名，data写入的内容，option可选参数，callback回调函数。默认写入情况情况会先清空里面的内容，而不是追加。实例：
 ```
 var fs = require('fs');
-fs.writeFile('./index2.txt','tomorrow is another day!',{'flag':'a'}，function(err){ //假设当前js和index.txt在同一级目录下面
+fs.writeFile('./fs/index2.txt','tomorrow is another day!',{'flag':'a'}，function(err){ 
     if(err){
         throw err;
     }
     console.log('saved');
     // 写入成功后读取测试
-    fs.readFile('./index2.txt', 'utf-8', function(err, data) {
+    fs.readFile('./fs/index2.txt', 'utf-8', function(err, data) {
         if (err) {
             throw err;
         }
@@ -106,7 +106,7 @@ callback 回调函数，参数如下:
 example:
 ```
 var fs = require('fs');
-fs.open('./index3.txt','r',function(err,fd){
+fs.open('./fs/index3.txt','r',function(err,fd){
     if(err){
         throw err;
     }
