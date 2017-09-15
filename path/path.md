@@ -75,3 +75,17 @@ console.log(basename);  // crypto
 ```
 path.extname(path);
 ```
+获取文件扩展名称，如果没有‘.’,则返回空。
+```
+var extname = path.extname('/Users/zhaojiao/study/node/launch/test/crypto.js');
+console.log(extname); // .js
+
+var extname = path.extname('/Users/zhaojiao/study/node/launch/test/crypto');
+console.log(extname); // ''
+```
+
+### path.sep
+返回操作系统文件分隔符。window是'\',unix是'/'.
+
+### path.delimiter
+返回操作系统中目录分隔符，如window是';', Unix中是':'
