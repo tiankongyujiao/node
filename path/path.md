@@ -44,3 +44,34 @@ var from = '/Users/zhaojiao',
 var _path = path.relative(from, to);
 console.log(_path);  // study/node/launch/test
 ```
+
+### path.dirname
+```
+path.dirname(path);
+```
+获取路径中的目录名。path文件路径。
+```
+var dirname = path.dirname('/Users/zhaojiao/study/node/launch/test/crypto.js');
+console.log(dirname);  //  /Users/zhaojiao/study/node/launch/test
+
+var dirname = path.dirname('/Users/zhaojiao/study/node/launch/test');
+console.log(dirname);  //  /Users/zhaojiao/study/node/launch
+```
+
+### path.basename
+```
+path.basename(path,[ext]);
+```
+获取路径文件名称，ext后缀，是可选的，如果加后缀则获取的文件名中不包含后缀，实例：
+```
+var basename = path.basename('/Users/zhaojiao/study/node/launch/test/crypto.js');
+console.log(basename);  //  crypto.js
+
+var basename = path.basename('/Users/zhaojiao/study/node/launch/test/crypto.js','.js');
+console.log(basename);  // crypto
+```
+
+### path.extname
+```
+path.extname(path);
+```
