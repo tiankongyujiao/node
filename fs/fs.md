@@ -1,4 +1,4 @@
-### fs模块
+## fs模块
 fs模块用于对系统文件及目录进行读写操作。使用  
 ```
 var fs = require('fs');
@@ -155,8 +155,39 @@ fs.open('./index4.txt','w',function(err,fd){
     });
 });
 ```
+## fs目录操作
+### fs.mkdir
+```
+fs.mkdir(path,[mode],callback);
+```
+path需要创建的目录，mode目录的权限（默认是0777），callback回调函数。实例：
+```
+var fs = require('fs');
+fs.mkdir('./newDir',function(err){
+    if(err){
+        throw err;
+    }
+    console.log('目录创建成功');
+});
+```
+删除目录可以用fs.rmdir(path,callback);但是只能删除空目录。
 
-
+### fs.readdir
+```
+fs.readdir(path,callback);
+```
+path读取文件路径，callback回调函数。
+```
+var fs = require('fs'); 
+fs.readdir('./newdir', function(err, files) {
+    if (err) {
+        throw err;
+    }
+    // files是一个数组
+    // 每个元素是此目录下的文件或文件夹的名称
+    console.log(files);
+});
+```
 
 
 
