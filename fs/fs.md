@@ -121,7 +121,40 @@ fs.open('./fs/index3.txt','r',function(err,fd){
     });
 });
 ```
-
+### fs.write
+```
+fs.read(fd,buffer,offset,length[,position],callback(err,bytesWritten,buffer));
+```
+fd 文件描述符，必须接收fs.open()方法中的回调函数返回的第二个参数。  
+buffer 是存放 将被写入的数据，buffer尺寸的大小设置最好是8的倍数，效率较高。  
+offset  buffer写入的偏移量。  
+length (integer)指定 写入文件中数据的字节数。  
+position (integer) 指定 在写入文件内容的起始位置。  
+callback 回调函数，参数如下  
+1. err 用于抛出异常
+2. bytesWritten从文件中读取内容的实际字节数。
+3. buffer 被读取的缓存区对象。
+实例：
+```
+var fs = require('fs');
+fs.open('./index4.txt','w',function(err,fd){
+    if(err){
+        throw err;
+    }
+    console.log('打开成功');
+    var buffer = new Buffer('tomorrow is another day!'); //写入的内容
+    fs.write(fd,buffer,0,10,0,function(err,bytesWritten,buffer){
+        if(err){
+            throw err;
+        }
+        console.log('写入成功');
+        // 打印出buffer中存入的数据
+        console.log(bytesWritten, buffer.slice(0, bytesWritten).toString()); // 10 tomorrow i
+        // 关闭文件
+        fs.close(fd);
+    });
+});
+```
 
 
 
