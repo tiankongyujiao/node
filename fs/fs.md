@@ -100,9 +100,9 @@ offset 指定 向buffer中存放数据的起始位置。
 length 指定 读取文件中数据的字节数。  
 position 指定 在文件中读取文件内容的起始位置。  
 callback 回调函数，参数如下:  
-    err 用于抛出异常   
-    bytesRead 从文件中读取内容的实际字节数。  
-    buffer 被读取的缓存区对象。  
+1. err 用于抛出异常   
+2. bytesRead 从文件中读取内容的实际字节数。  
+3. buffer 被读取的缓存区对象。  
 example:
 ```
 var fs = require('fs');
