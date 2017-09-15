@@ -189,8 +189,25 @@ fs.readdir('./newdir', function(err, files) {
 });
 ```
 
+### fs.exists
+```
+fs.exists(path, callback);
+```
+测试某个路径下的文件是否存在。path检查路径，callback回调函数，回调函数的参数是exists,为true则检查的文件存在，false则检查的文件不存在。注意这个方法的回调函数里面不包含错误信息err参数。
+```
+var fs = require('fs');
+fs.exists('./crypto.js',function(exists){
+	console.log(exists); //false 当前目录不包含crypto.js文件
+});
+```
+同步的方法为 fs.existsSync(path); path为要检查的路径
 
-
+### fs.unlink   
+删除的是具体的**文件**，不能删除**文件夹**
+```
+fs.unlink(path,[callback(err)]);
+```
+删除文件操作，path要删除的文件路径，callback回调函数。回调函数的第一个参数是异常参数err。
 
 
 
