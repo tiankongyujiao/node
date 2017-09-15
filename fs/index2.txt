@@ -1,1 +1,1 @@
-
+//写入以后的文件内容为：tomorrow is another day!
